@@ -1,0 +1,5 @@
+export enum ErrorCode {
+  USER_NOT_FOUND = 1001,
+  USER_ALREADY_EXISTS = 1002,
+  USER_WRONG_PASSWORD = 1003,
+}
