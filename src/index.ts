@@ -1,11 +1,13 @@
 import express from "express";
+import { config } from "./config/config";
+import { authRouter } from "./routes";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  return res.json({ message: "Hello World" });
-});
+app.use(express.json());
 
-app.listen(3333, () => {
-  console.log("Server started on port 3333");
+app.use("/api/auth", authRouter);
+
+app.listen(config.SERVER_PORT, () => {
+  console.log(`Server started on port ${config.SERVER_PORT}`);
 });

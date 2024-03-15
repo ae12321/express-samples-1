@@ -12,5 +12,11 @@ npm install --save-dev prettier nodemon ts-node
 touch nodemon.json
 mkdir src/controllers src/exceptions src/middlewares src/routes src/schemas
 npm install --save-dev prisma && npm install @prisma/client
-npx prisma init 
+npx prisma init
+
+npx prisma migrate dev --name "create user model"
+npm install dotenv bcrypt jsonwebtoken
+npm install --save-dev @types/bcrypt @types/jsonwebtoken
+
+
 ```

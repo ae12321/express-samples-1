@@ -1,3 +1,23 @@
+@baseurl = http://localhost:3000
+###
+GET {{baseurl}}/api
 
 ###
-GET http://localhost:3333/
+
+POST {{baseurl}}/api/auth/signup
+Content-Type: application/json
+
+{
+    "name": "name1",
+    "email": "name1@example.com",
+    "password": "password1"
+}
+
+###
+POST {{baseurl}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "name1@example.com",
+    "password": "password1"
+}
