@@ -20,4 +20,7 @@ npm install --save-dev @types/bcrypt @types/jsonwebtoken
 
 npx prisma migrate dev --name "add role to user"
 
+npx prisma migrate dev --name "relation address and user"
+npx prisma migrate dev --name "add default address"
+
 ```

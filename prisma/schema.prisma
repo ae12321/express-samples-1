@@ -18,14 +18,28 @@ enum Role {
   USER
 }
 
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
 model User {
   id Int @id @default(autoincrement())
   name String
   email String @unique
   password String
   role Role @default(USER)
+  defaultShippingAddress Int?
+  defaultBillingAddress Int?
+  cartItems CartItem[]
+  orders Order[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  addresses Address[]
+
   @@map("tbl_user")
 }
 
@@ -35,7 +49,72 @@ model Product {
   description String @db.Text
   price Decimal
   tags String
+  cartItems CartItem[]
+  orderProducts OrderProduct[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   @@map("tbl_product")
+}
+
+model Address {
+  id Int @id @default(autoincrement())
+  city String
+  zipcode String
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("tbl_address")
+}
+
+model CartItem {
+  id Int @id @default(autoincrement())
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  productId Int
+  product Product @relation(fields: [productId], references: [id])
+  quantity Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tbl_cart_item")
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  totalPrice Decimal
+  address String
+  orderProducts OrderProduct[]
+  orderEvents OrderEvent[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tbl_order")
+}
+
+model OrderProduct {
+  id Int @id @default(autoincrement())
+  orderId Int
+  order Order @relation(fields: [orderId], references: [id])
+  productId Int
+  product Product @relation(fields: [productId], references: [id])
+  quantity Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tbl_order_product")
+}
+
+model OrderEvent {
+  id Int @id @default(autoincrement())
+  orderId Int
+  order Order @relation(fields: [orderId], references: [id])
+  status OrderStatus @default(PENDING)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tbl_order_event")
 }

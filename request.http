@@ -8,9 +8,9 @@ POST {{baseurl}}/api/auth/signup
 Content-Type: application/json
 
 {
-    "name": "name2",
-    "email": "name2@example.com",
-    "password": "password2"
+    "name": "name1",
+    "email": "name1@example.com",
+    "password": "password1"
 }
 
 ###
@@ -74,3 +74,17 @@ Authorization: {{token}}
 DELETE  {{baseurl}}/api/products/2
 Content-Type: application/json
 Authorization: {{token}}
+
+
+###
+# @name createAddress
+
+POST {{baseurl}}/api/users/address
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "city": "city2",
+    "zipcode": "1234568",
+    "userId": 1
+}
