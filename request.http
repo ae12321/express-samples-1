@@ -30,3 +30,19 @@ Content-Type: application/json
 # @name me
 GET {{baseurl}}/api/auth/me
 Authorization: {{token}}
+
+
+###
+# @name createProduct
+POST {{baseurl}}/api/products
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "name": "tea",
+    "description": "hot and sweet",
+    "tags": ["hot", "sweet", "tea"],
+    "price" : 120
+}
+
+###
