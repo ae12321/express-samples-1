@@ -46,3 +46,31 @@ Authorization: {{token}}
 }
 
 ###
+# @name updateProduct
+PUT {{baseurl}}/api/products/11
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "price": 222
+}
+
+###
+# @name updateProduct
+GET  {{baseurl}}/api/products
+Content-Type: application/json
+Authorization: {{token}}
+
+
+###
+# @name getProductById
+GET  {{baseurl}}/api/products/2
+Content-Type: application/json
+Authorization: {{token}}
+
+
+###
+# @name deleteProduct
+DELETE  {{baseurl}}/api/products/2
+Content-Type: application/json
+Authorization: {{token}}
