@@ -21,3 +21,7 @@ Content-Type: application/json
     "email": "name1@example.com",
     "password": "password1"
 }
+
+
+
+GET {{baseurl}}/api/auth/me

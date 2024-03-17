@@ -67,3 +67,8 @@ export const signup = async (
 
   return res.status(200).json({ message: "signup completed", data: newUser });
 };
+
+export const me = async (req: Request, res: Response, next: NextFunction) => {
+  //
+  return res.status(200).json(req);
+};
