@@ -70,5 +70,5 @@ export const signup = async (
 
 export const me = async (req: Request, res: Response, next: NextFunction) => {
   //
-  return res.status(200).json(req);
+  return res.status(200).json(req.user);
 };
