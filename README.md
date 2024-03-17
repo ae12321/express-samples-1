@@ -18,5 +18,6 @@ npx prisma migrate dev --name "create user model"
 npm install dotenv bcrypt jsonwebtoken
 npm install --save-dev @types/bcrypt @types/jsonwebtoken
 
+npx prisma migrate dev --name "add role to user"
 
 ```

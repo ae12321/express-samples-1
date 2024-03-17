@@ -8,9 +8,9 @@ POST {{baseurl}}/api/auth/signup
 Content-Type: application/json
 
 {
-    "name": "name1",
-    "email": "name1@example.com",
-    "password": "password1"
+    "name": "name2",
+    "email": "name2@example.com",
+    "password": "password2"
 }
 
 ###
@@ -19,8 +19,8 @@ POST {{baseurl}}/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "name1@example.com",
-    "password": "password1"
+    "email": "name2@example.com",
+    "password": "password2"
 }
 
 ### 
